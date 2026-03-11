@@ -3,9 +3,9 @@
 
 A lightweight Monte Carlo event generator for exclusive $\phi$ electroproduction
 
-\[
+$$
 e p \rightarrow e' p' \phi \rightarrow e' p' K^+ K^-
-\]
+$$
 
 The generator produces events in **LUND format**, suitable for use with **GEMC / CLAS12 simulation pipelines**.
 
