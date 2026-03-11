@@ -19,11 +19,11 @@ Specifically, the differential cross section parameterization implemented here f
 
 These equations describe the kinematic dependence of the exclusive $\phi$ electroproduction cross section as a function of:
 
-- \(Q^2\)
-- \(W\)
-- \(t\)
-- \(\phi\)
-- \(\cos{\theta_{H}}\)
+- $Q^2$
+- $W$
+- $t$
+- $\phi$
+- $\cos{\theta_{H}}$
 
 ---
 
