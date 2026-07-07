@@ -95,6 +95,9 @@ double RandomGenerator::WeightCosThetaH(double EB, double Q2, double W, double t
     return w;
 }
 
+/*
+// Original weighted cos(theta_H) generator. Restore this block to recover
+// the helicity-angle distribution from WeightCosThetaH().
 double RandomGenerator::GenerateCosThetaH(double EB, double Q2, double W, double t) {
     double w0   = WeightCosThetaH(EB, Q2, W, t, 0.0);
     double w1   = WeightCosThetaH(EB, Q2, W, t, 1.0);
@@ -105,7 +108,7 @@ double RandomGenerator::GenerateCosThetaH(double EB, double Q2, double W, double
     }
 
     while (true) {
-        double cosThetaH = Uniform(-1.0, 1.0); 
+        double cosThetaH = Uniform(-1.0, 1.0);
         double w = WeightCosThetaH(EB, Q2, W, t, cosThetaH);
 
         if (w > wmax) {
@@ -116,6 +119,15 @@ double RandomGenerator::GenerateCosThetaH(double EB, double Q2, double W, double
             return cosThetaH;
         }
     }
+}
+*/
+
+double RandomGenerator::GenerateCosThetaH(double EB, double Q2, double W, double t) {
+    (void)EB;
+    (void)Q2;
+    (void)W;
+    (void)t;
+    return Uniform(-1.0, 1.0);
 }
 
 double RandomGenerator::GeneratePhiH() {
@@ -210,6 +222,9 @@ void RandomGenerator::UpdateWmax(double EB) {
     wmax = 2.0 * w_ref;
 }
 
+/*
+// Original weighted Q2/W/t generator. Restore this block to recover
+// accept-reject sampling with WeightQ2Wt().
 void RandomGenerator::GenerateKinematics(double EB, double& Q2, double& W, double& t) {
     while (true) {
         double q2_try = GenerateQ2();
@@ -230,4 +245,13 @@ void RandomGenerator::GenerateKinematics(double EB, double& Q2, double& W, doubl
             return;
         }
     }
+}
+*/
+
+void RandomGenerator::GenerateKinematics(double EB, double& Q2, double& W, double& t) {
+    (void)EB;
+
+    Q2 = GenerateQ2();
+    W  = GenerateW();
+    t  = GenerateT(Q2, W);
 }
